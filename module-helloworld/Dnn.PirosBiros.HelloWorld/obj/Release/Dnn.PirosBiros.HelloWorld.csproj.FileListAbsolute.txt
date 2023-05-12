@@ -1,0 +1,10 @@
+C:\DotNetNuke\Dev\hello\Website\bin\Dnn.PirosBiros.HelloWorld.dll.config
+C:\DotNetNuke\Dev\hello\Website\bin\Dnn.PirosBiros.HelloWorld.dll
+C:\DotNetNuke\Dev\hello\Website\bin\Dnn.PirosBiros.HelloWorld.pdb
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.csproj.AssemblyReference.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.App_LocalResources.Settings.resources
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.csproj.GenerateResource.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.csproj.CoreCompileInputs.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.csproj.CopyComplete
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.dll
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\module-helloworld\Dnn.PirosBiros.HelloWorld\obj\Release\Dnn.PirosBiros.HelloWorld.pdb
