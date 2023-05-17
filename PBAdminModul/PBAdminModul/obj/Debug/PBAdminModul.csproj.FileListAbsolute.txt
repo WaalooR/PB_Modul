@@ -1,0 +1,10 @@
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\bin\PBAdminModul.dll.config
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\bin\PBAdminModul.dll
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\bin\PBAdminModul.pdb
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.csproj.AssemblyReference.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAmindSite.Dnn.PBAdminModul.App_LocalResources.Settings.resources
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.csproj.GenerateResource.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.csproj.CoreCompileInputs.cache
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.csproj.CopyComplete
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.dll
+C:\DotNetNuke\Dev\hello\Website\DesktopModules\PB_Modul\PBAdminModul\PBAdminModul\obj\Debug\PBAdminModul.pdb

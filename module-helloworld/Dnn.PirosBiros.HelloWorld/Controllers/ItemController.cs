@@ -12,6 +12,7 @@
 
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Services.Social.Messaging.Internal.Views;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Components;
