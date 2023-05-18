@@ -24,7 +24,7 @@ namespace PBAmindSite.Dnn.PBAdminModul.Components
         //void DeleteItem(Item t);
         IEnumerable<Item> GetItems();
         Item GetItem(int id);
-        //void UpdateItem(Item t);
+        void UpdateItem(Item t);
     }
 
     internal class ItemManager : ServiceLocator<IItemManager, ItemManager>, IItemManager
@@ -75,14 +75,14 @@ namespace PBAmindSite.Dnn.PBAdminModul.Components
             return t;
         }
 
-        //public void UpdateItem(Item t)
-        //{
-        //    using (IDataContext ctx = DataContext.Instance())
-        //    {
-        //        var rep = ctx.GetRepository<Item>();
-        //        rep.Update(t);
-        //    }
-        //}
+        public void UpdateItem(Item t)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<Item>();
+                rep.Update(t);
+            }
+        }
 
         protected override System.Func<IItemManager> GetFactory()
         {

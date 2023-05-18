@@ -1,4 +1,4 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable< PBAmindSite.Dnn.PBAdminModul.Models.Item >>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable<PBAmindSite.Dnn.PBAdminModul.Models.Item>>
 
 @using System.Text.RegularExpressions
 @using DotNetNuke.Web.Mvc.Helpers
@@ -14,11 +14,22 @@
         border-width: 3px;
         border-style: solid;
     }
-    .container {}
+
+    .container {
+    }
+
     .frissitesButton {
         padding: 5px;
     }
+
+    .check-box {
+    }
 </style>
+
+@{
+    PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item newItem = new PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item();
+
+}
 
 <div class="container">
     <button class="base frissitesButton">Frissítés</button>
@@ -40,9 +51,25 @@
                     <td>@item.CurrencyName</td>
                     <td>@item.LongCurrencyName</td>
                     <td>@item.CurrencyValue</td>
-                    <td>@item.IsActive</td>
+                    <td><input id="@item.Id" class="check-box" type="checkbox" name="name1" checked="@item.IsActive" />&nbsp;</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    (function ($, Sys) {
+        $(function () {
+            $('.check-box').change(function () {
+                var checked = $(this)[0].checked;
+                @newItem.IsActive = checked;
+                @newItem.CurrencyValue = 12.34;
+                @newItem.CurrencyName = "asdf"";
+                @newItem.LongCurrencyName = "asdf"";
+                @newItem.Id = 6;
+                @Url.Action("Edit", "Item", new { ctl = "Edit", item = newItem})
+            });
+        });
+    }(jQuery, window.Sys));
+</script>

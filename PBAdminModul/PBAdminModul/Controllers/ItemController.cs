@@ -12,6 +12,8 @@
 
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Services.Installer.Log;
+using DotNetNuke.Services.Social.Messaging.Internal.Views;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using PBAmindSite.Dnn.PBAdminModul.Components;
@@ -49,33 +51,32 @@ namespace PBAmindSite.Dnn.PBAdminModul.Controllers
         //    return View(item);
         //}
 
-        //[HttpPost]
-        //[DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
-        //public ActionResult Edit(Item item)
-        //{
-        //    if (item.ItemId == -1)
-        //    {
-        //        item.CreatedByUserId = User.UserID;
-        //        item.CreatedOnDate = DateTime.UtcNow;
-        //        item.LastModifiedByUserId = User.UserID;
-        //        item.LastModifiedOnDate = DateTime.UtcNow;
+        [HttpPost]
+        [DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
+        public ActionResult Edit(Item item)
+        {
+            //if (item.Id == -1)
+            //{
+            //    item.CreatedByUserId = User.UserID;
+            //    item.CreatedOnDate = DateTime.UtcNow;
+            //    item.LastModifiedByUserId = User.UserID;
+            //    item.LastModifiedOnDate = DateTime.UtcNow;
 
-        //        ItemManager.Instance.CreateItem(item);
-        //    }
-        //    else
-        //    {
-        //        var existingItem = ItemManager.Instance.GetItem(item.ItemId, item.ModuleId);
-        //        existingItem.LastModifiedByUserId = User.UserID;
-        //        existingItem.LastModifiedOnDate = DateTime.UtcNow;
-        //        existingItem.ItemName = item.ItemName;
-        //        existingItem.ItemDescription = item.ItemDescription;
-        //        existingItem.AssignedUserId = item.AssignedUserId;
+            //    ItemManager.Instance.CreateItem(item);
+            //}
+            //else
+            //{
+                var existingItem = ItemManager.Instance.GetItem(item.Id);
+                existingItem.CurrencyValue = item.CurrencyValue;
+                existingItem.CurrencyName = item.CurrencyName;
+                existingItem.LongCurrencyName = item.LongCurrencyName;
+                existingItem.IsActive = item.IsActive;
 
-        //        ItemManager.Instance.UpdateItem(existingItem);
-        //    }
+                ItemManager.Instance.UpdateItem(existingItem);
+            //}
 
-        //    return RedirectToDefaultRoute();
-        //}
+            return RedirectToDefaultRoute();
+        }
 
         [ModuleAction(ControlKey = "Edit", TitleKey = "AddItem")]
         public ActionResult Index()
