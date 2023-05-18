@@ -17,17 +17,18 @@ CREATE TABLE {databaseOwner}{objectQualifier}Currency
     [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     [CurrencyName] VARCHAR(50),
     [LongCurrencyName] VARCHAR(100),
-    [CurrencyValue] FLOAT
+    [CurrencyValue] FLOAT,
+    [IsActive] BIT
     )  
 
 GO
 
-INSERT INTO [Currency] ([CurrencyName], [LongCurrencyName], [CurrencyValue])
-VALUES ('USD', 'United States Dollar', 1.0),
-       ('EUR', 'Euro', 0.85),
-       ('JPY', 'Japanese Yen', 109.46),
-       ('GBP', 'British Pound', 0.72),
-       ('CAD', 'Canadian Dollar', 1.21);
+INSERT INTO [Currency] ([CurrencyName], [LongCurrencyName], [CurrencyValue], [IsActive])
+VALUES ('USD', 'United States Dollar', 66.0, 1),
+       ('EUR', 'Euro', 0.85, 1),
+       ('JPY', 'Japanese Yen', 69.70, 0),
+       ('GBP', 'British Pound', 0.72, 0),
+       ('CAD', 'Canadian Dollar', 1.21, 1);
 
 GO
 

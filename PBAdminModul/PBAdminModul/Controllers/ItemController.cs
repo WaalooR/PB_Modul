@@ -12,6 +12,8 @@
 
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Services.Installer.Log;
+using DotNetNuke.Services.Social.Messaging.Internal.Views;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using PBAmindSite.Dnn.PBAdminModul.Components;
@@ -26,53 +28,52 @@ namespace PBAmindSite.Dnn.PBAdminModul.Controllers
     public class ItemController : DnnController
     {
 
-        public ActionResult Delete(int itemId)
-        {
-            ItemManager.Instance.DeleteItem(itemId, ModuleContext.ModuleId);
-            return RedirectToDefaultRoute();
-        }
+        //public ActionResult Delete(int itemId)
+        //{
+        //    ItemManager.Instance.DeleteItem(itemId, ModuleContext.ModuleId);
+        //    return RedirectToDefaultRoute();
+        //}
 
-        public ActionResult Edit(int itemId = -1)
-        {
-            DotNetNuke.Framework.JavaScriptLibraries.JavaScript.RequestRegistration(CommonJs.DnnPlugins);
+        //public ActionResult Edit(int itemId = -1)
+        //{
+        //    DotNetNuke.Framework.JavaScriptLibraries.JavaScript.RequestRegistration(CommonJs.DnnPlugins);
 
-            var userlist = UserController.GetUsers(PortalSettings.PortalId);
-            var users = from user in userlist.Cast<UserInfo>().ToList()
-                        select new SelectListItem { Text = user.DisplayName, Value = user.UserID.ToString() };
+        //    var userlist = UserController.GetUsers(PortalSettings.PortalId);
+        //    var users = from user in userlist.Cast<UserInfo>().ToList()
+        //                select new SelectListItem { Text = user.DisplayName, Value = user.UserID.ToString() };
 
-            ViewBag.Users = users;
+        //    ViewBag.Users = users;
 
-            var item = (itemId == -1)
-                 ? new Item { ModuleId = ModuleContext.ModuleId }
-                 : ItemManager.Instance.GetItem(itemId, ModuleContext.ModuleId);
+        //    var item = (itemId == -1)
+        //         ? new Item { ModuleId = ModuleContext.ModuleId }
+        //         : ItemManager.Instance.GetItem(itemId, ModuleContext.ModuleId);
 
-            return View(item);
-        }
+        //    return View(item);
+        //}
 
         [HttpPost]
         [DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
         public ActionResult Edit(Item item)
         {
-            if (item.ItemId == -1)
-            {
-                item.CreatedByUserId = User.UserID;
-                item.CreatedOnDate = DateTime.UtcNow;
-                item.LastModifiedByUserId = User.UserID;
-                item.LastModifiedOnDate = DateTime.UtcNow;
+            //if (item.Id == -1)
+            //{
+            //    item.CreatedByUserId = User.UserID;
+            //    item.CreatedOnDate = DateTime.UtcNow;
+            //    item.LastModifiedByUserId = User.UserID;
+            //    item.LastModifiedOnDate = DateTime.UtcNow;
 
-                ItemManager.Instance.CreateItem(item);
-            }
-            else
-            {
-                var existingItem = ItemManager.Instance.GetItem(item.ItemId, item.ModuleId);
-                existingItem.LastModifiedByUserId = User.UserID;
-                existingItem.LastModifiedOnDate = DateTime.UtcNow;
-                existingItem.ItemName = item.ItemName;
-                existingItem.ItemDescription = item.ItemDescription;
-                existingItem.AssignedUserId = item.AssignedUserId;
+            //    ItemManager.Instance.CreateItem(item);
+            //}
+            //else
+            //{
+                var existingItem = ItemManager.Instance.GetItem(item.Id);
+                existingItem.CurrencyValue = item.CurrencyValue;
+                existingItem.CurrencyName = item.CurrencyName;
+                existingItem.LongCurrencyName = item.LongCurrencyName;
+                existingItem.IsActive = item.IsActive;
 
                 ItemManager.Instance.UpdateItem(existingItem);
-            }
+            //}
 
             return RedirectToDefaultRoute();
         }
@@ -80,7 +81,7 @@ namespace PBAmindSite.Dnn.PBAdminModul.Controllers
         [ModuleAction(ControlKey = "Edit", TitleKey = "AddItem")]
         public ActionResult Index()
         {
-            var items = ItemManager.Instance.GetItems(ModuleContext.ModuleId);
+            var items = ItemManager.Instance.GetItems();
             return View(items);
         }
     }

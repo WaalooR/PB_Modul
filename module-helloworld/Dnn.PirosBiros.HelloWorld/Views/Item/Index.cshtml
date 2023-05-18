@@ -19,7 +19,13 @@
     }
 
     .price {
-        padding: 10px;
+        width: 100px;
+        text-align: end;
+    }
+
+    .currency {
+        width: 80px;
+        text-align: end;
     }
 
     .red-dropdown {
@@ -43,16 +49,17 @@
     <div class="base red-div price" id="currencyValue"></div>
     <div class="base red-div">HUF</div>
     <div style="font-size: 80px">&#x2192</div>
-    <div class="base red-div" id="currencyName"></div>
+    <div class="base red-div currency" id="currencyName"></div>
 </div>
 
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">id</th>
-            <th scope="col">name</th>
-            <th scope="col">longName</th>
-            <th scope="col">value</th>
+            <th scope="col">Id</th>
+            <th scope="col">Név</th>
+            <th scope="col">Teljes név</th>
+            <th scope="col">Érték</th>
+            <th scope="col">Aktív e</th>
         </tr>
     </thead>
     <tbody>
@@ -63,6 +70,7 @@
                 <td>@item.CurrencyName</td>
                 <td>@item.LongCurrencyName</td>
                 <td>@item.CurrencyValue</td>
+                <td>@item.IsActive</td>
             </tr>
         }
     </tbody>

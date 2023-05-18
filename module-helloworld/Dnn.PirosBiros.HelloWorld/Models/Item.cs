@@ -31,5 +31,7 @@ namespace PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models
         public string CurrencyName { get; set; }
         public string LongCurrencyName { get; set; }
         public double CurrencyValue { get; set; }
+        public bool IsActive { get; set; }
+
     }
 }
