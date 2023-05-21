@@ -46,6 +46,8 @@
         <tbody>
             @foreach (var item in Model)
             {
+                var curerncy = item;
+                curerncy.IsActive = !curerncy.IsActive;
                 <tr>
                     <th scope="row">@item.Id</th>
                     <td>@item.CurrencyName</td>
@@ -62,13 +64,24 @@
     (function ($, Sys) {
         $(function () {
             $('.check-box').change(function () {
+            $('.check-box').change(function () {
                 var checked = $(this)[0].checked;
                 @newItem.IsActive = checked;
                 @newItem.CurrencyValue = 12.34;
                 @newItem.CurrencyName = "asdf"";
                 @newItem.LongCurrencyName = "asdf"";
                 @newItem.Id = 6;
-                @Url.Action("Edit", "Item", new { ctl = "Edit", item = newItem})
+
+                var proxy = new ItemProxy(
+                    '@Dnn.ActiveModule.ModuleID',
+                    'Item'
+                )
+
+                proxy.Update(
+                    NewItem
+                )
+
+                @Url.Action("Update", "Item", new { ctl = "Update", item = newItem})
             });
         });
     }(jQuery, window.Sys));

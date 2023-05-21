@@ -41,7 +41,10 @@
     <select name="currency" id="currencys" class="base red-dropdown">
         @foreach (var item in Model)
         {
-            <option class="red-dropdown-value" value="@item.CurrencyName @item.CurrencyValue" onchange="asd(@item.CurrencyValue)">@item.LongCurrencyName</option>
+            if (item.IsActive)
+            {
+                <option class="red-dropdown-value" value="@item.CurrencyName @item.CurrencyValue" onchange="asd(@item.CurrencyValue)">@item.LongCurrencyName</option>
+            }
         }
     </select>
 
