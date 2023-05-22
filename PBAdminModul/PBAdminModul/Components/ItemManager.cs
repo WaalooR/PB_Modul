@@ -19,9 +19,9 @@ namespace PBAmindSite.Dnn.PBAdminModul.Components
 {
     internal interface IItemManager
     {
-        //void CreateItem(Item t);
-        //void DeleteItem(int itemId, int moduleId);
-        //void DeleteItem(Item t);
+        void CreateItem(Item t);
+        void DeleteItem(int id);
+        void DeleteItem(Item t);
         IEnumerable<Item> GetItems();
         Item GetItem(int id);
         void UpdateItem(Item t);
@@ -29,29 +29,29 @@ namespace PBAmindSite.Dnn.PBAdminModul.Components
 
     internal class ItemManager : ServiceLocator<IItemManager, ItemManager>, IItemManager
     {
-        //public void CreateItem(Item t)
-        //{
-        //    using (IDataContext ctx = DataContext.Instance())
-        //    {
-        //        var rep = ctx.GetRepository<Item>();
-        //        rep.Insert(t);
-        //    }
-        //}
+        public void CreateItem(Item t)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<Item>();
+                rep.Insert(t);
+            }
+        }
 
-        //public void DeleteItem(int itemId, int moduleId)
-        //{
-        //    var t = GetItem(itemId, moduleId);
-        //    DeleteItem(t);
-        //}
+        public void DeleteItem(int id)
+        {
+            var t = GetItem(id);
+            DeleteItem(t);
+        }
 
-        //public void DeleteItem(Item t)
-        //{
-        //    using (IDataContext ctx = DataContext.Instance())
-        //    {
-        //        var rep = ctx.GetRepository<Item>();
-        //        rep.Delete(t);
-        //    }
-        //}
+        public void DeleteItem(Item t)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<Item>();
+                rep.Delete(t);
+            }
+        }
 
         public IEnumerable<Item> GetItems()
         {
