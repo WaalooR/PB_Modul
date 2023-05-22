@@ -16,24 +16,37 @@
     }
 
     .container {
+        padding: 10px;
+        width: 90%;
     }
 
     .frissitesButton {
-        padding: 5px;
+        margin: 0;
+        font-size: 20px;
     }
 
     .check-box {
     }
+
+    .table.table-class {
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
+    }
+    .button-div {
+        padding-right: 20px;
+        display: flex;
+        justify-content: end;
+    }
 </style>
 
 @{
-    PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item newItem = new PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item();
+//PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item newItem = new PirosBiros.Dnn.Dnn.PirosBiros.HelloWorld.Models.Item();
 
 }
 
 <div class="container">
-    <button class="base frissitesButton">Frissítés</button>
-    <table class="table">
+    <table class="table table-class">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -46,29 +59,55 @@
         <tbody>
             @foreach (var item in Model)
             {
+                var curerncy = item;
+                curerncy.IsActive = !curerncy.IsActive;
                 <tr>
                     <th scope="row">@item.Id</th>
                     <td>@item.CurrencyName</td>
                     <td>@item.LongCurrencyName</td>
                     <td>@item.CurrencyValue</td>
-                    <td><input id="@item.Id" class="check-box" type="checkbox" name="name1" checked="@item.IsActive" />&nbsp;</td>
+                    @*<td><a href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item})"><input id="@item.Id" class="check-box" type="checkbox" name="name1" checked="@item.IsActive" /></a></td>*@
+                    @if (item.IsActive)
+                    {
+                        <td><a style="color:black !important;" href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item})">Tiltás</a></td>
+                    }
+                    else
+                    {
+                        <td><a style="color:black !important;" href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item})">Aktiválás</a></td>
+
+                    }
+                    @*<td><input id="@item.Id" class="check-box" type="checkbox" name="name1" checked="@item.IsActive" />&nbsp;</td>*@
                 </tr>
             }
         </tbody>
     </table>
+    <div class="button-div">
+        <button class="base frissitesButton">Frissítés</button>
+    </div>
 </div>
 
 <script type="text/javascript">
     (function ($, Sys) {
         $(function () {
             $('.check-box').change(function () {
+            $('.check-box').change(function () {
                 var checked = $(this)[0].checked;
-                @newItem.IsActive = checked;
+                @*@newItem.IsActive = checked;
                 @newItem.CurrencyValue = 12.34;
                 @newItem.CurrencyName = "asdf"";
                 @newItem.LongCurrencyName = "asdf"";
                 @newItem.Id = 6;
-                @Url.Action("Edit", "Item", new { ctl = "Edit", item = newItem})
+
+                var proxy = new ItemProxy(
+                    '@Dnn.ActiveModule.ModuleID',
+                    'Item'
+                )
+
+                proxy.Update(
+                    NewItem
+                )
+
+                @Url.Action("Update", "Item", new { ctl = "Update", item = newItem})*@
             });
         });
     }(jQuery, window.Sys));
