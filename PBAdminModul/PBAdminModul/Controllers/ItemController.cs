@@ -19,6 +19,7 @@ using DotNetNuke.Web.Mvc.Framework.Controllers;
 using PBAmindSite.Dnn.PBAdminModul.Components;
 using PBAmindSite.Dnn.PBAdminModul.Models;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -70,7 +71,7 @@ namespace PBAmindSite.Dnn.PBAdminModul.Controllers
                 existingItem.CurrencyValue = item.CurrencyValue;
                 existingItem.CurrencyName = item.CurrencyName;
                 existingItem.LongCurrencyName = item.LongCurrencyName;
-                existingItem.IsActive = item.IsActive;
+                existingItem.IsActive = !item.IsActive;
 
                 ItemManager.Instance.UpdateItem(existingItem);
             //}

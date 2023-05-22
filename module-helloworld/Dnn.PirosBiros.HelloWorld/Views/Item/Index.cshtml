@@ -38,7 +38,7 @@
 
 
 <div style="display: flex; flex-direction: row; justify-content: center;">
-    <select name="currency" id="currencys" class="base red-dropdown">
+    <select name="currency" id="currencys" class="base red-dropdown" >
         @foreach (var item in Model)
         {
             if (item.IsActive)
@@ -51,33 +51,9 @@
     <p style="margin: 0 10px 0 20px; padding-top: 8px; font-weight: bold; font-size: 20px">Árfolyam:</p>
     <div class="base red-div price" id="currencyValue"></div>
     <div class="base red-div">HUF</div>
-    <div style="font-size: 80px">&#x2192</div>
+    <div style="font-size: 60px; margin-top: 10px">&#x2192</div>
     <div class="base red-div currency" id="currencyName"></div>
 </div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Név</th>
-            <th scope="col">Teljes név</th>
-            <th scope="col">Érték</th>
-            <th scope="col">Aktív e</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th scope="row">@item.Id</th>
-                <td>@item.CurrencyName</td>
-                <td>@item.LongCurrencyName</td>
-                <td>@item.CurrencyValue</td>
-                <td>@item.IsActive</td>
-            </tr>
-        }
-    </tbody>
-</table>
 
 <script type="text/javascript">
     (function ($, Sys) {

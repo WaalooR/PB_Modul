@@ -81,16 +81,6 @@
                     <helpUrl />
                     <viewOrder>0</viewOrder>
                   </moduleControl>
-				    <moduleControl>
-					    <controlKey>Update</controlKey>
-					    <controlSrc>PBAmindSite.Dnn.PBAdminModul.Controllers/Api/Item/Update.mvc</controlSrc>
-					    <supportsPartialRendering>False</supportsPartialRendering>
-					    <controlTitle>PBAdminModul Settings</controlTitle>
-					    <controlType>Update</controlType>
-					    <iconFile />
-					    <helpUrl />
-					    <viewOrder>0</viewOrder>
-				    </moduleControl>
                 </moduleControls>
               </moduleDefinition>
             </moduleDefinitions>

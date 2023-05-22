@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PBAmindSite.Dnn.PBAdminModul.Controllers.Api
 {
-    public class ItemController : Controller
+    public class ItemController2 : Controller
     {
         // GET: Item
         public ActionResult Index()
